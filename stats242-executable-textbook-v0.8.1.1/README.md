@@ -1,0 +1,101 @@
+# STATS 242 Executable Textbook (v0.8.0)
+
+This repository turns chapters into runnable programs that produce:
+- `report.md`
+- `report.html` (with embedded charts)
+- `figures/*.png`
+- `artifacts/*.json` (structured outputs when applicable)
+
+v0.8.0 adds two lanes:
+
+## Lane 1 — Core
+Fast, reproducible, “instrument-grade” implementations that you can run by default.
+
+## Lane 2 — Principia
+Deep, derivation-heavy and simulation-heavy companions. They run via the same book builder but are registered in a separate YAML registry.
+
+---
+
+## Install
+
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# macOS/Linux: source .venv/bin/activate
+
+pip install -r requirements.txt
+pip install -e .
+```
+
+---
+
+## Build the Core book (fast)
+
+```bash
+python -m stats242xtb.tools.make_toy_data --kind suite --out data
+python -m stats242xtb.run_all --book configs/book.yml --out outputs/book_build
+```
+
+Open: `outputs/book_build/latest/index.html`
+
+---
+
+## Build Principia (deeper)
+
+```bash
+python -m stats242xtb.run_all --book configs/principia.yml --out outputs/principia_build
+```
+
+Open: `outputs/principia_build/latest/index.html`
+
+---
+
+## Run one chapter
+
+```bash
+python -m stats242xtb.run chapter04 --returns data/returns_capm_toy.csv --out outputs/ch04 \
+  --cov-type HAC --hac-lags 5 --hac-kernel bartlett \
+  --rolling-window 120 --rolling-step 5
+```
+
+---
+
+## What v0.8.0 focuses on (Core)
+- A regression layer with **covariance choices**: OLS, HC0–HC3, HAC (Newey–West).
+- A reusable **diagnostics bundle** that standardizes residual checks and plots.
+- Optional **rolling regression** stability plots for Chapter 04.
+
+Generated: 2026-01-12
+
+
+## Validate datasets (v0.8.0)
+
+```bash
+python -m stats242xtb.tools.validate --kind trades --in data/trades_toy.csv --strict
+python -m stats242xtb.tools.validate --kind quotes --in raw.csv --canonicalize --map configs/colmap_quotes.yml
+```
+
+Each chapter writes provenance to `artifacts/run_meta.json`.
+
+
+## v0.8.1 — Research-grade Chapters 5–7
+
+Chapters 5–7 were upgraded into a research-oriented “strategy core”:
+- Standardized performance metrics (Sharpe, max drawdown, turnover) and linear cost sweeps.
+- Equity / drawdown / turnover / cost-sensitivity plots.
+- Reproducibility artifacts: `artifacts/summary.json` per chapter (in addition to `run_meta.json`).
+
+Quick run (strategies only):
+
+```bash
+python -m stats242xtb.tools.make_toy_data --kind suite --out data
+python -m stats242xtb.run_all --book configs/book_5_7.yml --out outputs/book_build
+```
+
+
+## Book registries
+
+- `configs/book.yml` (alias of `book_full.yml`): Chapters 01–14
+- `configs/book_1_7.yml`: Chapters 01–07
+- `configs/book_5_7.yml`: Chapters 05–07 (+ primer)
+- `configs/book_1_4.yml`: Chapters 01–04
