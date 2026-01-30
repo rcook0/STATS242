@@ -1,0 +1,16 @@
+# Book registry: chapters to auto-run into a build folder.
+# Paths are interpreted relative to this YAML file unless you pass --data-root.
+
+chapters:
+  - chapter: chapter02
+    name: "Chapter 02 — Returns diagnostics"
+    out: "ch02_returns"
+    args:
+      prices: "../data/prices_toy.csv"
+      lags: 20
+
+  - chapter: chapter10
+    name: "Chapter 10 — Roll spread"
+    out: "ch10_roll"
+    args:
+      trades: "../data/trades_toy.csv"
