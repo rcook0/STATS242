@@ -1,0 +1,96 @@
+# Book registry: chapters to auto-run.
+# Paths are interpreted relative to this YAML file unless you pass --data-root.
+
+chapters:
+  - chapter: chapter02
+    name: "Chapter 02 — Returns diagnostics"
+    out: "ch02"
+    args:
+      prices: "../data/prices_toy.csv"
+      lags: 20
+
+  - chapter: chapter03
+    name: "Chapter 03 — Random walk sanity checks"
+    out: "ch03"
+    args:
+      prices: "../data/prices_toy.csv"
+      lags: 20
+      vr_q: 5
+
+  - chapter: chapter04
+    name: "Chapter 04 — CAPM regression"
+    out: "ch04"
+    args:
+      returns: "../data/returns_capm_toy.csv"
+
+  - chapter: chapter05
+    name: "Chapter 05 — Momentum J/K"
+    out: "ch05"
+    args:
+      prices_multi: "../data/prices_multi_toy.csv"
+      J: 60
+      K: 20
+      top_frac: 0.25
+
+  - chapter: chapter06
+    name: "Chapter 06 — Pairs / OU"
+    out: "ch06"
+    args:
+      prices_multi: "../data/prices_multi_toy.csv"
+      pair: "A,B"
+      z_win: 60
+      z_entry: 1.5
+
+  - chapter: chapter07
+    name: "Chapter 07 — Mean-variance"
+    out: "ch07"
+    args:
+      prices_multi: "../data/prices_multi_toy.csv"
+
+  - chapter: chapter08
+    name: "Chapter 08 — Durations / ACD"
+    out: "ch08"
+    args:
+      events: "../data/events_toy.csv"
+
+  - chapter: chapter09
+    name: "Chapter 09 — Mid vs trade"
+    out: "ch09"
+    args:
+      quotes: "../data/quotes_toy.csv"
+      trades: "../data/trades_toy.csv"
+
+  - chapter: chapter10
+    name: "Chapter 10 — Roll spread"
+    out: "ch10"
+    args:
+      trades: "../data/trades_toy.csv"
+
+  - chapter: chapter11
+    name: "Chapter 11 — Trade-sign response"
+    out: "ch11"
+    args:
+      quotes: "../data/quotes_toy.csv"
+      trades: "../data/trades_toy.csv"
+
+  - chapter: chapter12
+    name: "Chapter 12 — LOB imbalance baseline"
+    out: "ch12"
+    args:
+      lob: "../data/lob_toy.csv"
+
+  - chapter: chapter13
+    name: "Chapter 13 — Execution / AC"
+    out: "ch13"
+    args:
+      total_shares: 1000000
+      N: 20
+      risk_aversion: 0.15
+      sigma: 0.01
+      impact: 1e-6
+      sims: 2000
+
+  - chapter: chapter14
+    name: "Chapter 14 — Workflow checklist"
+    out: "ch14"
+    args: { }
