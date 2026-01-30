@@ -1,0 +1,35 @@
+# Foundations only (Ch 01–04)
+
+chapters:
+  - chapter: chapter01
+    name: "Chapter 01 — Primer"
+    out: "ch01"
+    args: {}
+
+  - chapter: chapter02
+    name: "Chapter 02 — Returns diagnostics"
+    out: "ch02"
+    args:
+      prices: "../data/prices_toy.csv"
+      lags: 20
+      returns: "log"
+
+  - chapter: chapter03
+    name: "Chapter 03 — Random walk & variance ratio"
+    out: "ch03"
+    args:
+      prices: "../data/prices_toy.csv"
+      lags: 20
+      vr_q: 5
+      returns: "log"
+
+  - chapter: chapter04
+    name: "Chapter 04 — CAPM regression (robust)"
+    out: "ch04"
+    args:
+      returns: "../data/returns_capm_toy.csv"
+      cov_type: "HAC"
+      hac_lags: 5
+      hac_kernel: "bartlett"
+      rolling_window: 120
+      rolling_step: 5
