@@ -1,0 +1,6 @@
+# Example column mapping for trades conversion.
+date: DATE
+time: TIME
+price: PRICE
+size: SIZE
+side: SIDE

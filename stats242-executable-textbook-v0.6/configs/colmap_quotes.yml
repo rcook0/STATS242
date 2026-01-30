@@ -1,0 +1,9 @@
+# Example column mapping for quotes conversion.
+# Any of these patterns work: ts OR (date+time) OR (epoch+epoch_unit).
+# Here: date+time.
+date: DATE
+time: TIME
+bid: BID
+ask: ASK
+bid_size: BIDSIZ
+ask_size: ASKSIZ
