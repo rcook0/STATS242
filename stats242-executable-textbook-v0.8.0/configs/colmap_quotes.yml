@@ -1,0 +1,6 @@
+date: DATE
+time: TIME
+bid: BID
+ask: ASK
+bid_size: BIDSIZ
+ask_size: ASKSIZ
