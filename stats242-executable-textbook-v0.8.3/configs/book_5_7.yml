@@ -1,0 +1,46 @@
+# Strategy core (research-grade) — chapters 5–7 only (plus a short primer).
+
+chapters:
+  - chapter: chapter01
+    name: "Chapter 01 — Primer"
+    out: "ch01"
+    args: {}
+
+  - chapter: chapter05
+    name: "Chapter 05 — Cross-sectional momentum (research grade)"
+    out: "ch05"
+    args:
+      prices_multi: "../data/prices_multi_toy.csv"
+      J: 60
+      K: 20
+      quantiles: 10
+      top_frac: 0.25
+      overlap: true
+      long_short: true
+      cost_bps_list: [0, 10, 25, 50]
+
+  - chapter: chapter06
+    name: "Chapter 06 — Pairs mean reversion / cointegration (research grade)"
+    out: "ch06"
+    args:
+      prices_multi: "../data/prices_multi_toy.csv"
+      pair: "A,B"
+      z_win: 60
+      z_entry: 1.5
+      z_exit: 0.5
+      adf_maxlag: 1
+      target_vol: 0.10
+      allow_flip: true
+      cost_bps_list: [0, 10, 25, 50]
+
+  - chapter: chapter07
+    name: "Chapter 07 — Portfolio construction & rebalancing (research grade)"
+    out: "ch07"
+    args:
+      prices_multi: "../data/prices_multi_toy.csv"
+      methods: "equal,inv_vol,min_var,risk_parity,mean_var"
+      rebalance_days: 21
+      lookback_days: 252
+      shrink: 0.2
+      risk_aversion: 10.0
+      cost_bps_list: [0, 10, 25, 50]

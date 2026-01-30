@@ -1,0 +1,13 @@
+# Principia registry: deeper, slower, more verbose.
+
+chapters:
+  - chapter: principia_ch04_inference
+    name: "Principia — Ch04: HAC vs OLS under serial correlation"
+    out: "p_ch04_inference"
+    args:
+      n: 1000
+      sims: 500
+      phi: 0.4
+      alpha_true: 0.0
+      beta_true: 1.0
+      cov_lags: 5
